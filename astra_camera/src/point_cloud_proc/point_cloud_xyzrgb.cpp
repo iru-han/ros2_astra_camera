@@ -40,7 +40,7 @@
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <image_geometry/pinhole_camera_model.hpp>
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <memory>
