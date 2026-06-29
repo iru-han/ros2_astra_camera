@@ -18,8 +18,12 @@ class ParametersBackend {
  public:
   explicit ParametersBackend(rclcpp::Node* node);
   ~ParametersBackend();
-  void addOnSetParametersCallback(
-      rclcpp::node_interfaces::NodeParametersInterface::OnParametersSetCallbackType callback);
+  // void addOnSetParametersCallback(
+      // rclcpp::node_interfaces::NodeParametersInterface::OnParametersSetCallbackType callback);
+
+  rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr addOnSetParametersCallback(
+    std::function<rcl_interfaces::msg::SetParametersResult(const std::vector<rclcpp::Parameter>&)> callback
+  );
 
  private:
   rclcpp::Node* node_;

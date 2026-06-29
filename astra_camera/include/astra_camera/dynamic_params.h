@@ -39,12 +39,14 @@ class Parameters {
   void removeParam(const std::string& param_name);
 
  private:
- private:
   rclcpp::Node* node_;
   rclcpp::Logger logger_;
   std::map<std::string, std::vector<std::function<void(const rclcpp::Parameter&)> > >
       param_functions_;
   std::map<void*, std::string> param_names_;
   ParametersBackend params_backend_;
+
+  // ROS 2 Jazzy 파라미터 콜백 유지를 위한 핸들러 변수 추가
+  rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr set_param_handler_;
 };
 }  // namespace astra_camera
